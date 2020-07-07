@@ -1,7 +1,12 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const expressValidator = require("express-validator");
 const app = express();
+
+// bring in route
+const postRoutes = require("./routes/post.js");
 
 dotenv.config();
 const port = process.env.PORT;
@@ -13,10 +18,9 @@ mongoose
 
 mongoose.connection.on("error", (err) => console.log(`DB connection error: ${err}`));
 
-// bring in route
-const postRoutes = require("./routes/post.js");
-
-// routes middleware
+// middleware
+app.use(bodyParser.json());
+app.use(expressValidator());
 app.use("/", postRoutes);
 
 app.listen(port, () => console.log(`SERVER running at port: ${port}`));
