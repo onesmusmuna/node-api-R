@@ -1,0 +1,13 @@
+{
+  "name": "node-api",
+  "version": "1.0.0",
+  "description": "Node js api with Ryan Dhungel",
+  "main": "index.js",
+  "author": "Onesmus muna",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.22"
+  }
+}
